@@ -10,10 +10,6 @@ services:
       - MYSQL_DATABASE=wordpress
       - MYSQL_USER=wordpress
       - MYSQL_PASSWORD=wordpress
-    expose:
-      - 3306
-      - 33060
-
   wordpress:
     image: wordpress:latest
     volumes:
