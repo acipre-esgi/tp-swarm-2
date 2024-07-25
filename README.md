@@ -43,7 +43,20 @@ Le stack utilise un volume qui est mappé sur le conteneur au /app/microbin_data
 
 ## 4.3 Monitoring
 
-Ce stack contient la suite prometheus / alertmanager/ cadvisor / grafana
+Ce stack contient les servies suivants : 
+- prometheus : Collecte l'ensemble des metriques. Et declenche des alertes. Le service est expose sur le port 8080.
+- alertmanager : Envoil les alertes discord, est exposé sur le port 9093
+- cadvisor : Déployé sur tous les membre du cluster swarm, permet a prometheus de recuperer les metriques de conteneur, est exposé sur le port 8085.
+- grafana : Ce connecte au prometheus pour faire des dashboards avec les données. Est exposé dur le port 3000
+
+# 5. Accesibilité des services
+
+Le services sont exposés derriere un reverse proxy Nginx Proxy Manager, ils sont accessible via les domaines suivants :
+
+- Prometheus : http://prom.gr6.courses.studalya.net/
+- Grafana : http://graf.gr6.courses.studalya.net/
+- Wordpress : http://gr6.courses.studalya.net/
+- Microbin : http://microbin.gr6.courses.studalya.net/
 
 
 
