@@ -12,7 +12,7 @@ La configuration Keepelived est disponible dans le dossier keepalived/.
 
 # 2. Cluster swarm
 
-Le cluster swarm est composé des trois machines (sc16,sc17,sc18). sc16 et sc17 sont des managers tandis que sc18 est un worker.
+Le cluster swarm est composé des trois machines (sc16,sc17,sc18). Les trois machines sont managers du cluster.
 
 Afin de ne pas rentrer en conflit avec le port Vxlan de VMware, nous avons changer le data-path-port pour l'overlay.
 
