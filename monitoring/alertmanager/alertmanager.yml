@@ -1,0 +1,11 @@
+route:
+  group_by: ['cadvisor']
+  group_wait: 0s
+  group_interval: 1m
+  repeat_interval: 3h
+  receiver: discord
+
+receivers:
+  - name: discord
+    discord_configs:
+      - webhook_url: 'https://discordapp.com/api/webhooks/1265559344322187355/sdhZi9hQH5fGeZLJoGlEByaH4A2CRA_x5boYi1KjU2rl-D7DtAhyT7mRqFlqSr_dCLUX'

@@ -1,0 +1,11 @@
+groups:
+  - name: cadvisor_alerts
+    rules:
+      - alert: CadvisorDown
+        expr: up{job="cadvisor"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "cAdvisor instance down"
+          description: "The cAdvisor instance on {{ $labels.instance }} is down for more than 1 minute."

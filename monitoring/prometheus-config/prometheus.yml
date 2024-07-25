@@ -1,0 +1,46 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets: ['alertmanager:9093']
+      scheme: http
+      timeout: 10s
+#      api_version: v2
+rule_files:
+  - rules.yml
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'node'
+    static_configs:
+      - targets: ['172.20.107.100:9323']
+        labels:
+          node: 'sc16'
+      - targets: ['172.20.107.101:9323']
+        labels:
+          node: 'sc17'
+      - targets: ['172.20.107.102:9323']
+        labels:
+          node: 'sc18'
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['172.20.107.100:8085']
+        labels:
+          node: 'sc16'
+      - targets: ['172.20.107.101:8085']
+        labels:
+          node: 'sc17'
+      - targets: ['172.20.107.102:8085']
+        labels:
+          node: 'sc18'
+#  - job_name: 'Monitor Microbin service'
+#    metrics_path: /
+#    params:
+#      module: [http_2xx]
+#    static_configs:
+#      - targets:
+#        - 'http://microbin.gr6.courses.studalya.net'

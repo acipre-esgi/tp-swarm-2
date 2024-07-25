@@ -1,0 +1,8 @@
+services:
+  microbin:
+    image: danielszabo99/microbin:latest
+    restart: always
+    ports:
+     - "8090:8080"
+    volumes:
+     - /mnt/gfs/docker/microbin/microbin-data:/app/microbin_data
